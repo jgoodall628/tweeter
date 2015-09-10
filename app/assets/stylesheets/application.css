@@ -41,3 +41,12 @@ a:hover {
   border: 1px solid #e1e8ed;
   padding: 0;
 }
+.well {
+  background: #fff;
+}
+.subtle {
+  color: #8899A6;
+}
+.glyphicon.glyphicon-menu-right {
+  font-size: 10px;
+}

@@ -1,2 +1,53 @@
-<h1>Epicenter#show_user</h1>
-<p>Find me in app/views/epicenter/show_user.html.erb</p>
+<h1><%= @user.username %></h1>
+<h3><%= @user.location %></h3>
+<h3><%= @user.bio %></h3>
+
+<div class="row">
+  <% @user.tweets.each do |tweet| %>
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p>
+          <%= tweet.message %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% if current_user.id != @user.id %>
+  <% if current_user.following.include?(@user.id) %>
+  <div class="">
+    <%= form_tag('/unfollow') do %>
+    <span class="hidden">
+      <%= text_field_tag :id, @user.id %>
+    </span><br>
+    <%= submit_tag 'Following', class: "btn btn-primary", id: "unfollow-btn" %>
+    <% end %>
+  </div>
+
+  <% else %>
+  <div class="">
+    <%= form_tag('/now_following') do %>
+    <span class="hidden">
+      <%= text_field_tag :id, @user.id %>
+    </span><br>
+    <%= submit_tag 'Follow', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <% end %>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#unfollow-btn').hover(function() {
+      $(this).removeClass("btn-primary");
+      $(this).addClass("btn-danger");
+      $(this).prop("value", "Unfollow");
+    }, function() {
+      $(this).prop("value", "Following");
+      $(this).removeClass("btn-danger");
+      $(this).addClass("btn-primary");
+    });
+  });
+
+</script>

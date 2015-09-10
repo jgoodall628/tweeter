@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.limit(20).reverse
   end
   def show
   end

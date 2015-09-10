@@ -1,27 +1,30 @@
-<p id="notice"><%= notice %></p>
-<h1>Whatever, this is just a header</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Message</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.message %></td>
-        <td><%= tweet.user.username %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<div class="panel panel-default">
+  <div class="panel-Heading">
+    <h1>Recent Tweets</h1>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <% @tweets.each do |tweet| %>
+      <div class="col-md-12">
+        <div class="well">
+
+            <p>
+              <strong><%=link_to tweet.user.name, user_profile_path(id: tweet.user.id) %></strong>
+              <span class="subtle">
+                <%= tweet.user.username %>
+                <span class="glyphicon glyphicon-menu-right"></span>
+                <%= time_ago_in_words(tweet.created_at) %> ago
+              </span>
+            </p>
+            <p>
+              <%= tweet.message %>
+            </p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
