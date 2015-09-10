@@ -1,15 +1,43 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+.cant-see-me {
+  display: none;
+}
+.new-tweet {
+  background: #E5F2F7;
+  border: solid;
+  border-color: #BFE0EC;
+  border-radius: 3px 3px 0 0;
+  border-width: 1px;
+  padding: 10px 12px;
+}
+body {
+  background: #F5F8FA;
+}
+a {
+  color: black;
+}
+a:hover {
+  color: #0084B4;
+}
+.navbar-default {
+  background: #FFFFFF;
+}
+.container {
+  background: #fff;
+  border: 1px solid #e1e8ed;
+  padding: 0;
+}
