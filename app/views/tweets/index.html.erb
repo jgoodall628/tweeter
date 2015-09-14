@@ -1,7 +1,6 @@
 
-
 <div class="panel panel-default">
-  <div class="panel-Heading">
+  <div class="panel-heading">
     <h1>Recent Tweets</h1>
 
   </div>
@@ -11,17 +10,17 @@
       <div class="col-md-12">
         <div class="well">
 
-            <p>
-              <strong><%=link_to tweet.user.name, user_profile_path(id: tweet.user.id) %></strong>
-              <span class="subtle">
-                <%= tweet.user.username %>
-                <span class="glyphicon glyphicon-menu-right"></span>
-                <%= time_ago_in_words(tweet.created_at) %> ago
-              </span>
-            </p>
-            <p>
-              <%= tweet.message %>
-            </p>
+          <p>
+            <strong><%=link_to tweet.user.name, user_profile_path(id: tweet.user.id) %></strong>
+            <span class="subtle">
+              <%= tweet.user.username %>
+              <span class="glyphicon glyphicon-menu-right"></span>
+              <%= time_ago_in_words(tweet.created_at) %> ago
+            </span>
+          </p>
+          <p>
+            <%= tweet.message %>
+          </p>
         </div>
       </div>
       <% end %>

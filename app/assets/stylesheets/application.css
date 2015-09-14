@@ -50,3 +50,9 @@ a:hover {
 .glyphicon.glyphicon-menu-right {
   font-size: 10px;
 }
+.panel {
+  margin: 0;
+}
+.panel-default > .panel-heading {
+  background: #E5F2F7;
+}
