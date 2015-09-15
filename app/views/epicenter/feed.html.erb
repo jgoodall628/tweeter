@@ -15,6 +15,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
               <p>
+                <%= image_tag tweet.user.avatar.url(:thumb) %>
                 <strong><em><%=link_to tweet.user.name, user_profile_path(id: tweet.user.id) %></em></strong>
                 <span class="subtle">
                   <%= tweet.user.username %>
