@@ -4,24 +4,24 @@
     <p>
       Hello <%= current_user.name %>
     </p>
-    <p>
-      Here is what your friends are saying:
-    </p>
   </div>
     <div class="panel-body">
     <div class="row">
+      <div class="col-md-12">
+        <%= render 'tweets/form' %>
+      </div>
       <% @following_tweets.each do |tweet| %>
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-body">
-            <p>
-              <strong><em><%=link_to tweet.user.name, user_profile_path(id: tweet.user.id) %></em></strong>
-              <span class="subtle">
-                <%= tweet.user.username %>
-                <span class="glyphicon glyphicon-menu-right"></span>
-                <%= time_ago_in_words(tweet.created_at) %> ago
-              </span>
-            </p>
+              <p>
+                <strong><em><%=link_to tweet.user.name, user_profile_path(id: tweet.user.id) %></em></strong>
+                <span class="subtle">
+                  <%= tweet.user.username %>
+                  <span class="glyphicon glyphicon-menu-right"></span>
+                  <%= time_ago_in_words(tweet.created_at) %> ago
+                </span>
+              </p>
             <p>
               <%= tweet.message %>
             </p>

@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: "Tweet was susccessfully created."}
+        format.html { redirect_to root_path, notice: "Tweet was susccessfully created."}
       else
         format.html {render :new}
       end

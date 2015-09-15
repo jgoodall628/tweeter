@@ -1,0 +1,51 @@
+<h1>You Are Following</h1>
+<div class="row">
+  <% @followed_users.each do |followed_user| %>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>
+          <%= followed_user.name %>
+        </h3>
+
+
+        <% if current_user.following.include?(followed_user.id) %>
+        <div class="">
+          <%= form_tag('/unfollow') do %>
+          <span class="hidden">
+            <%= text_field_tag :id, followed_user.id %>
+          </span><br>
+          <%= submit_tag 'Following', class: "btn btn-primary unfollow-btn"%>
+          <% end %>
+        </div>
+
+        <% else %>
+        <div class="">
+          <%= form_tag('/now_following') do %>
+          <span class="hidden">
+            <%= text_field_tag :id, followed_user.id %>
+          </span><br>
+          <%= submit_tag 'Follow', class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.unfollow-btn').hover(function() {
+    $(this).removeClass("btn-primary");
+    $(this).addClass("btn-danger");
+    $(this).prop("value", "Unfollow");
+  }, function() {
+    $(this).prop("value", "Following");
+    $(this).removeClass("btn-danger");
+    $(this).addClass("btn-primary");
+  });
+});
+
+</script>
