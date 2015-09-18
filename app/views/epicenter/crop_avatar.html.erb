@@ -1,0 +1,8 @@
+<%= form_for(@user, url: update_image_path(id: @user.id)) do |f| %>
+  <%= f.cropbox :avatar %>
+  <%= f.crop_preview :avatar %>
+  <%= f.submit 'Save' %>
+<% end %>
+<script type="text/javascript">
+  init_papercrop();
+</script>

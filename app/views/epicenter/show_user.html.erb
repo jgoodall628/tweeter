@@ -2,6 +2,7 @@
 <h3><%= @user.location %></h3>
 <h3><%= @user.bio %></h3>
 
+<%= link_to "Edit Image", crop_image_path(id: @user.id) %>
 <div class="row">
   <% @user.tweets.each do |tweet| %>
   <div class="col-md-12">

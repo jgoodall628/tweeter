@@ -48,6 +48,12 @@ class EpicenterController < ApplicationController
 
     current_user.save
   end
+  def update_avatar
+    @user = User.find(params[:id])
+  end
+  def crop_avatar
+    @user = User.find(params[:id])
+  end
 
   private
 

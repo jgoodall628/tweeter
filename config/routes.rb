@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'epicenter#feed'
-
+  get 'crop_image' => 'epicenter#crop_avatar'
+  patch 'update_image' => 'epicenter#update_avatar'
   get 'user_profile' => 'epicenter#show_user'
   get 'followers' => 'epicenter#followers'
   get 'my_following' => 'epicenter#my_following'

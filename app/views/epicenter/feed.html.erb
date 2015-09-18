@@ -1,35 +1,43 @@
 <div class="panel panel-default">
-  <div class="panel-heading">
+  <div class="panel-heading feed-heading">
     <h1>Your Twitter Feed</h1>
     <p>
       Hello <%= current_user.name %>
     </p>
   </div>
-    <div class="panel-body">
+  <div class="panel-body">
     <div class="row">
       <div class="col-md-12">
         <%= render 'tweets/form' %>
       </div>
       <% @following_tweets.each do |tweet| %>
       <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-body">
-              <p>
-                <%= image_tag tweet.user.avatar.url(:thumb) %>
-                <strong><em><%=link_to tweet.user.name, user_profile_path(id: tweet.user.id) %></em></strong>
-                <span class="subtle">
-                  <%= tweet.user.username %>
-                  <span class="glyphicon glyphicon-menu-right"></span>
-                  <%= time_ago_in_words(tweet.created_at) %> ago
-                </span>
-              </p>
-            <p>
-              <%= tweet.message %>
-            </p>
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <%= image_tag tweet.user.avatar.url(:thumb), class: "media-object" %>
+          </a>
+        </div>
+        <div class="media-body media-middle">
+          <div class="media-heading">
+            <h4>
+              <%=link_to tweet.user.name, user_profile_path(id: tweet.user.id) %>
+              <span class="subtle">
+                <%= tweet.user.username %>
+                <span class="glyphicon glyphicon-menu-right"></span>
+                <%= time_ago_in_words(tweet.created_at) %> ago
+              </span>
+
+            </h4>
 
           </div>
+
+          <p>
+            <%= tweet.message %>
+          </p>
         </div>
       </div>
+    </div>
       <% end %>
     </div>
 

@@ -10,10 +10,13 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
 
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit({ roles: [] }, :following, :email, :password, :password_confirmation,
-    :name, :username, :bio, :location, :avatar) }
-    
+    :name, :username, :bio, :location, :avatar, :avatar, :avatar_original_w, :avatar_original_h, :avatar_box_w, :avatar_crop_x, :avatar_crop_y,
+    :avatar_crop_w, :avatar_crop_h, :avatar_aspect) }
+
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:following,  :email, :password, :password_confirmation,
-      :current_password, :name, :username, :bio, :location, :avatar) }
+      :current_password, :name, :username, :bio, :location,
+      :avatar, :avatar_original_w, :avatar_original_h, :avatar_box_w, :avatar_crop_x, :avatar_crop_y,
+      :avatar_crop_w, :avatar_crop_h, :avatar_aspect) }
 
     end
 

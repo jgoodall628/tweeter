@@ -2,7 +2,8 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
+  <%= f.cropbox :avatar %>
+  <%= f.crop_preview :avatar %>
   <div class="field form-group">
     <%= f.text_field :name, autofocus: true, placeholder: "First and Last Name", class: "form-control" %>
   </div><br />
@@ -38,9 +39,9 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= form.file_field :avatar %>
-  </div>
+  <!-- <div class="form-group">
+    <%= f.file_field :avatar %>
+  </div> -->
 
   <div class="field form-group">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
